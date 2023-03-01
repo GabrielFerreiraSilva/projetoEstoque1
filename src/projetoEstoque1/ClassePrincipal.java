@@ -6,8 +6,9 @@ public class ClassePrincipal {
 
         Servicos svc = new Servicos();
 
-        svc.realizarLogin();
+        //svc.realizarLogin();
 
+        svc.consultarProduto();
     }
 
 }
