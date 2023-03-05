@@ -159,6 +159,7 @@ public class Servicos {
         //Incialização das 4 variáveis que armazenarão as informações do produto consultado
         String marca = null;
         String modelo = null;
+        int qtd;
         float preco = 0;
         int quantidade = 0;
         //Flag que sinaliza a existência ou não do produro no cadastro
@@ -178,11 +179,13 @@ public class Servicos {
                         marca = leitura.nextLine();
                         modelo = leitura.nextLine();
                         preco = Float.parseFloat(leitura.nextLine());
+                        qtd = Integer.parseInt(leitura.nextLine());
                         if(cbLido == cb){
                             System.out.println("Código de barras: " + cb);
                             System.out.println("Marca: " + marca);
                             System.out.println("Modelo: " + modelo);
                             System.out.println("Preço: R$ " + preco);
+                            System.out.println("Quantidade: " + qtd);
                             flag = true;
                             break;
                         }

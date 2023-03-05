@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.File;
 //Aqui começa o código da classe Gerente
-public class Gerente {
+public class Gerente extends Servicos{
     //O arquivo que armazena os dados sobre os produtos é atribuído a uma String chamada "arquivoP"
     File arquivoP = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
 
@@ -26,7 +26,8 @@ public class Gerente {
             System.out.println("2 para apagar produto do cadastro");
             System.out.println("3 para cadastrar novo funcionário");
             System.out.println("4 para apagar funcionário do cadastro");
-            System.out.println("5 para sair do programa");
+            System.out.println("5 para consultar produto no estoque");
+            System.out.println("6 para fechar o programa");
             //É feita a leitura da escolha do usuário
             String escolha = teclado.nextLine();
             //A escolha é avaliada e a ação escolhida é executada
@@ -39,6 +40,9 @@ public class Gerente {
             }else if (escolha.equals("4")){
                 apagarFuncionario();
             }else if (escolha.equals("5")){
+                Servicos s = new Servicos();
+                s.consultarProduto();
+            }else if(escolha.equals("6")){
                 break;
             }
             else{
