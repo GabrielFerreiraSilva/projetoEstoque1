@@ -1,1 +1,1 @@
-Antes de rodar o código, atualize o path do arquivo funcionarios e produtos
+Antes de rodar o código, atualize o path dos arquivos funcionarios.txt, produtos.txt e auxiliar.txt
