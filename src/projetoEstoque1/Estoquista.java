@@ -1,7 +1,7 @@
 package projetoEstoque1;
 import java.io.*;
 import java.util.Scanner;
-public class Estoquista {
+public class Estoquista extends Servicos{
     // Arquivo do estoque
     File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
 
@@ -14,8 +14,9 @@ public class Estoquista {
         while (true){
             System.out.println("");
             // Opções disponíveis para o usuário
-            System.out.println("[1] para adicionar produtos no estoque.");
-            System.out.println("[2] para fechar o programa.");
+            System.out.println("[1] para adicionar produtos ao estoque.");
+            System.out.println("[2] para consultar produto no estoque.");
+            System.out.println("[3] para fechar o programa.");
             System.out.println("");
             System.out.print("Opção: ");
 
@@ -23,13 +24,17 @@ public class Estoquista {
             int escolha = entrada.nextInt();
 
             // Ações da escolha do usuário
-            if (escolha == 1){
+            if (escolha == 1) {
                 adicionarProdutosEstoque();
-            } else if (escolha == 2){
+            }else if(escolha == 2){
+                consultarProduto();
+            } else if (escolha == 3){
                 break;
             } else {
                 // Essa mensagem irá aparecer caso o usuário digite algo diferente de 1 e 2
-                System.out.println("Opção Inválida.");
+                System.out.println("");
+                System.out.println(" ");
+                System.out.println("Opção Inválida. Tente novamente.");
             }
         }
     }
@@ -68,7 +73,7 @@ public class Estoquista {
                 System.out.println("Erro ao acessar a base de dados");
             }
             if(!flag){
-                System.out.println("O produto não está cadastrado");
+                //System.out.println("O produto não está cadastrado");
                 return false;
             }
             else{
@@ -93,7 +98,8 @@ public class Estoquista {
             // O Estoquista não tem o direito de adicionar novos produtos
             // Logo se, por meio do código de barras, for verificado que o produto não existe cadastrado no estoque, essa mensagem será exibida
             if (consultarProdutoEstoque(codigoLido) == false){
-                System.out.println("Produto não cadastrado. Entre em Contato com o Gerente.");
+                System.out.println("");
+                System.out.println("O produto não está cadastrado. Entre em Contato com o Gerente.");
             }
             // Caso o produto exista no estoque, o programa continuará
             else {
@@ -156,10 +162,12 @@ public class Estoquista {
                 PrintWriter limpador2 = new PrintWriter(auxiliar);
                 limpador2.flush();
                 limpador2.close();
+
+                System.out.println("Produto adicionado ao estoque com sucesso");
             }
 
         } catch (Exception exception){
-            // Em caso de algum erro durante todo o caminho, essa mensagem será exibida
+            // Em caso de algum erro durante o caminho, essa mensagem será exibida
             System.out.println("Erro ao adicionar produto no estoque.");
         }
     }

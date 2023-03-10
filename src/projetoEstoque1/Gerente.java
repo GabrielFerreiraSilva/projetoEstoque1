@@ -17,17 +17,19 @@ public class Gerente extends Servicos{
     //O construtor abaixo é executado assim que o método de login indica que o funcionário logado é um gerente
     public Gerente() {
         //Mensagem de boas vindas
-        System.out.println("Olá! O que deseja fazer?");
+        System.out.println("======== GERENTE ========");
         //As opções ficarão em loop até que o usuário escolha a opção de fechar o programa
         while(true){
             System.out.println(" ");
             //Abaixo, as opções que o usuário pode escolher
-            System.out.println("1 para cadastrar novo produto");
-            System.out.println("2 para apagar produto do cadastro");
-            System.out.println("3 para cadastrar novo funcionário");
-            System.out.println("4 para apagar funcionário do cadastro");
-            System.out.println("5 para consultar produto no estoque");
-            System.out.println("6 para fechar o programa");
+            System.out.println("[1] para cadastrar novo produto");
+            System.out.println("[2] para apagar produto do cadastro");
+            System.out.println("[3] para cadastrar novo funcionário");
+            System.out.println("[4] para apagar funcionário do cadastro");
+            System.out.println("[5] para consultar produto no estoque");
+            System.out.println("[6] para fechar o programa");
+            System.out.println(" ");
+            System.out.print("Opção: ");
             //É feita a leitura da escolha do usuário
             String escolha = teclado.nextLine();
             //A escolha é avaliada e a ação escolhida é executada
@@ -77,6 +79,7 @@ public class Gerente extends Servicos{
             escrita.write("0\n");
             //Ao fim da adição, o arquivo é fechado e uma mensagem de sucesso é exibida
             escrita.close();
+            System.out.println(" ");
             System.out.println("Produto cadastrado com sucesso");
         }
         catch(Exception exception){
@@ -128,6 +131,7 @@ public class Gerente extends Servicos{
             FileWriter escrita4 = new FileWriter(aux, false);
             escrita4.write("");
             escrita4.close();
+            System.out.println(" ");
             System.out.println("Produto deletado com sucesso");
         }
         catch(Exception exception){
@@ -149,6 +153,7 @@ public class Gerente extends Servicos{
             escrita.write(senha + "\n");
             escrita.write(cargo + "\n");
             escrita.close();
+            System.out.println(" ");
             System.out.println("Funcionario cadastrado com sucesso");
         }
         catch(Exception exception){
@@ -199,6 +204,7 @@ public class Gerente extends Servicos{
             FileWriter escrita4 = new FileWriter(aux, false);
             escrita4.write("");
             escrita4.close();
+            System.out.println(" ");
             System.out.println("Cadastro deletado com sucesso");
         }
         catch(Exception exception){

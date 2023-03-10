@@ -34,7 +34,7 @@ public class Servicos {
                 break;
             }
             else{
-                System.out.println("A matrícula informada não está cadastrada");
+                System.out.println("A matrícula informada não está cadastrada. Tente novamente.");
             }
         }
         /* Uma vez confirmada a matrícula, o programa irá, repetidamente, solicitar a senha do funcionário
@@ -46,6 +46,7 @@ public class Servicos {
             iguais, é invocado o método que identifica o cargo do funcionário logado e após isso o loop é encerrado.
             Caso sejam diferentes, é exibida uma mensagem de erro e o loop executa novamente */
             if(senhaRecebida.equals(senhaEsperada)){
+                System.out.println(" ");
                 System.out.println("Acesso concedido");
                 System.out.println(" ");
                 //O método invocado abaixo armazena o cargo do funcionário na variável "cargo"
@@ -53,18 +54,23 @@ public class Servicos {
                 break;
             }
             else{
-                System.out.println("Senha Incorreta");
+                System.out.println(" ");
+                System.out.println("Senha Incorreta. Tente novamente.");
             }
         }
     }
     //O método abaixo é invocado para receber a matrícula do funcionário
     private int receberMatricula(){
-        //É exibida uma mensagem inicial
-        System.out.print("Por favor, digite sua matrícula: ");
         //O objeto teclado, do tipo Scanner, irá ler a matrícula inserida
         Scanner teclado = new Scanner(System.in);
+        //É exibida uma mensagem inicial
+
+        System.out.print("Por favor, digite sua matrícula: ");
         //A matrícula digitada pelo usuário será retornada
-        return teclado.nextInt();
+        int matricula = teclado.nextInt();
+        System.out.println("=================================");
+        return matricula;
+
     }
     //O método abaixo verifica se a matrícula inserida pelo usuário está cadastrada
     /* Esse método retorna o valor true se a matrícula estiver cadastrada e retorna o
@@ -169,6 +175,7 @@ public class Servicos {
         while(true){
             //Na variável cb será armazenao o código de barras digitado pelo usuário
             Scanner teclado = new Scanner(System.in);
+            System.out.println(" ");
             System.out.print("Por favor, digite o código de barras do produto: ");
             long cb = teclado.nextLong();
             try{
@@ -181,6 +188,7 @@ public class Servicos {
                         preco = Float.parseFloat(leitura.nextLine());
                         qtd = Integer.parseInt(leitura.nextLine());
                         if(cbLido == cb){
+                            System.out.println(" ");
                             System.out.println("Código de barras: " + cb);
                             System.out.println("Marca: " + marca);
                             System.out.println("Modelo: " + modelo);
