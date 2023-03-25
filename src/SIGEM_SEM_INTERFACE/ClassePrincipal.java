@@ -1,4 +1,4 @@
-package projetoEstoque1;
+package SIGEM_SEM_INTERFACE;
 public class ClassePrincipal {
     public static void main(String[] args) {
         Servicos svc = new Servicos();

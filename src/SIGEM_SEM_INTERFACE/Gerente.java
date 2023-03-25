@@ -1,5 +1,5 @@
 //A classe gerente contém apenas métodos que são exclusivos deste cargo
-package projetoEstoque1;
+package SIGEM_SEM_INTERFACE;
 //Pacotes que são necessários
 import java.io.FileWriter;
 import java.util.Scanner;
@@ -7,10 +7,10 @@ import java.io.File;
 //Aqui começa o código da classe Gerente
 public class Gerente extends Servicos{
     //O arquivo que armazena os dados sobre os produtos é atribuído a uma String chamada "arquivoP"
-    File arquivoP = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
+    File arquivoP = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/produtos.txt");
 
-    File aux = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/auxiliar.txt");
-    File funcionarios = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/funcionarios.txt");
+    File aux = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/auxiliar.txt");
+    File funcionarios = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/funcionarios.txt");
 
     //Objeto Scanner que irá ler as informações digitadas pelo teclado
     Scanner teclado = new Scanner(System.in);

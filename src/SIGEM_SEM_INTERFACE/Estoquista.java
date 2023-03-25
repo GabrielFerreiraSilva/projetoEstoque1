@@ -1,12 +1,12 @@
-package projetoEstoque1;
+package SIGEM_SEM_INTERFACE;
 import java.io.*;
 import java.util.Scanner;
 public class Estoquista extends Servicos{
     // Arquivo do estoque
-    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
+    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/produtos.txt");
 
     // Arquivo feito para auxiliar a atualização que será feita no estoque
-    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/auxiliar.txt");
+    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/auxiliar.txt");
     Scanner entrada = new Scanner(System.in);
     public Estoquista(){
         System.out.println("===== ESTOQUISTA =====");

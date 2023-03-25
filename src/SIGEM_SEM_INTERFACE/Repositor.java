@@ -1,17 +1,17 @@
-package projetoEstoque1;
+package SIGEM_SEM_INTERFACE;
 import java.io.*;
 import java.util.Scanner;
 public class Repositor {
 
     // Arquivo referente ao mostruário
-    File mostruario = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/mostruario.txt");
+    File mostruario = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/mostruario.txt");
 
     // Arquivo referente ao estoque
-    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
+    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/produtos.txt");
 
     // Arquivos que vao auxiliar no funciomanete da classe repositor
-    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/auxiliar.txt");
-    File auxiliar2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/auxiliar2.txt");
+    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/auxiliar.txt");
+    File auxiliar2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/auxiliar2.txt");
 
     Scanner entrada = new Scanner(System.in);
 

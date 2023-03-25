@@ -1,5 +1,5 @@
 //Essa classe contém métodos que são comuns a todos os funcionários, independente do cargo
-package projetoEstoque1;
+package SIGEM_SEM_INTERFACE;
 //Importação de pacotes necessários
 import java.util.Scanner;
 import java.io.File;
@@ -17,8 +17,8 @@ public class Servicos {
     }
     /* Os objetos abaixo, do tipo File, armazenarão, respectivamente, o arquivo com informações sobre
     os funcionário e o arquivo com informações sobre os produtos */
-    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/funcionarios.txt");
-    File arquivo2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/projetoEstoque1/produtos.txt");
+    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/funcionarios.txt");
+    File arquivo2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_SEM_INTERFACE/produtos.txt");
     //O método abaixo é invocado assim que o programa iniciar
     public void realizarLogin(){
         //O programa irá, repetidamente, solicitar a matrícula do funcionário até que uma matrícula válida seja inserida
