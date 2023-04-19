@@ -11,6 +11,8 @@ public class MetodosRepositor {
     // Arquivo referente ao mostruário
     File mostruario = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/mostruario.txt");
 
+    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/funcionarios.txt");
+
     // Arquivo referente ao estoque
     File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/produtos.txt");
 
@@ -342,5 +344,55 @@ public class MetodosRepositor {
         }
 
         return false;
+    }
+
+    public void alterarSenha(){
+
+        String matricula = JOptionPane.showInputDialog(null, "Digite sua matrícula", "Alterar Senha", JOptionPane.PLAIN_MESSAGE);
+        String novaSenha = JOptionPane.showInputDialog(null, "Digite a Nova Senha", "Alterar Senha", JOptionPane.PLAIN_MESSAGE);
+        try{
+            Scanner leitura = new Scanner(arquivo);
+            while(leitura.hasNextLine()){
+                String matriculaLida = leitura.nextLine();
+                String senhaLida = leitura.nextLine();
+                String cargoLido = leitura.nextLine();
+                if(matriculaLida.equals(matricula)){
+                    FileWriter escritor2 = new FileWriter(auxiliar, true);
+                    escritor2.write(matriculaLida + "\n");
+                    escritor2.write(novaSenha + "\n");
+                    escritor2.write(cargoLido + "\n");
+                    escritor2.close();
+                }
+                else{
+                    FileWriter escritor1 = new FileWriter(auxiliar, true);
+                    escritor1.write(matriculaLida + "\n");
+                    escritor1.write(senhaLida + "\n");
+                    escritor1.write(cargoLido + "\n");
+                    escritor1.close();
+                }
+            }
+            PrintWriter limpador = new PrintWriter(arquivo);
+            limpador.flush();
+            limpador.close();
+            Scanner leitura2 = new Scanner(auxiliar);
+            while(leitura2.hasNextLine()){
+                String matriculaLida = leitura2.nextLine();
+                String senhaLida = leitura2.nextLine();
+                String cargoLido = leitura2.nextLine();
+                FileWriter escritor3 = new FileWriter(arquivo, true);
+                escritor3.write(matriculaLida + "\n");
+                escritor3.write(senhaLida + "\n");
+                escritor3.write(cargoLido + "\n");
+                escritor3.close();
+            }
+            PrintWriter limpador2 = new PrintWriter(auxiliar);
+            limpador2.flush();
+            limpador2.close();
+            JOptionPane.showMessageDialog(null, "Senha Alterada Com Sucesso", "Alterar Senha", JOptionPane.PLAIN_MESSAGE);
+        }
+        catch(Exception e){
+            System.out.println("Ocorreu um erro");
+        }
+
     }
 }

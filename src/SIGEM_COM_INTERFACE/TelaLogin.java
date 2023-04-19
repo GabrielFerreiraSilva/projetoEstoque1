@@ -26,7 +26,7 @@ public class TelaLogin extends JFrame{
                         if(svc.getFlag()){
                             janelaLogin.dispose();
                             if(svc.getCargo().equals("gerente")){
-                                TelaRepositor tela2 = new TelaRepositor();
+                                TelaGerente tela2 = new TelaGerente();
                             } else if(svc.getCargo().equals("estoquista")){
                                 TelaEstoquista telaEst = new TelaEstoquista();
                             } else if(svc.getCargo().equals("repositor")){

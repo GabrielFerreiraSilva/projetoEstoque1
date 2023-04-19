@@ -9,6 +9,8 @@ public class TelaEstoquista extends Frame {
     private JComboBox comboBox1;
     private JButton OKButton;
     private JPanel painelGerente;
+    private JButton voltarButton;
+
     public TelaEstoquista(){
         JFrame janelaGerente = new JFrame("SIGEM V1.5");
         janelaGerente.add(painelGerente);
@@ -36,7 +38,23 @@ public class TelaEstoquista extends Frame {
                             throw new RuntimeException(ex);
                         }
                     }
+                    else if(comboBox1.getSelectedItem().toString().equals("Alterar Senha")){
+
+                        est.alterarSenha();
+                        break;
+
+                    }
                 }
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                janelaGerente.dispose();
+
+                TelaLogin telaLogin = new TelaLogin();
+
             }
         });
     }

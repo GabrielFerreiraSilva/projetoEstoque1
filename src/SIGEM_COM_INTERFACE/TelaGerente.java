@@ -7,6 +7,10 @@ public class TelaGerente extends Frame {
     private JComboBox comboBox1;
     private JButton OKButton;
     private JPanel painelGerente;
+    private JButton voltarButton;
+
+    private TelaLogin novaTela;
+
     public TelaGerente(){
         JFrame janelaGerente = new JFrame("SIGEM V1.5");
         janelaGerente.add(painelGerente);
@@ -41,7 +45,23 @@ public class TelaGerente extends Frame {
                         ger.removerFuncionario();
                         break;
                     }
+                    else if(comboBox1.getSelectedItem().toString().equals("Alterar Senha")){
+
+                        ger.alterarSenha();
+                        break;
+
+                    }
                 }
+            }
+        });
+        voltarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                janelaGerente.dispose();
+
+                TelaLogin telaLogin = new TelaLogin();
+
             }
         });
     }
