@@ -60,6 +60,7 @@
             <item value="Adicionar Novo Funcionário Ao Cadastro"/>
             <item value="Remover Funcionário Do Cadastro"/>
             <item value="Alterar Senha"/>
+            <item value="Histórico de Movimentações"/>
           </model>
         </properties>
       </component>

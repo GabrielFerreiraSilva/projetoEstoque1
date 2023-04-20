@@ -3,14 +3,22 @@ package SIGEM_COM_INTERFACE;
 import javax.swing.*;
 import java.io.File;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class MetodosGerente {
-    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/funcionarios.txt");
-    File arquivo2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/produtos.txt");
-    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/auxiliar.txt");
+    File arquivo = new File("funcionarios.txt");
+    File arquivo2 = new File("produtos.txt");
+    File auxiliar = new File("auxiliar.txt");
+    File log = new File("log.txt");
+
+    LocalDateTime horaAtual = LocalDateTime.now();
+    String horaAtualFormatada = horaAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
     public void adicionarProduto(){
         String cb = JOptionPane.showInputDialog(null, "Digite o Código de Barras do Novo Produto", "Adicionar Produto Ao Estoque", JOptionPane.PLAIN_MESSAGE);
         String marca = JOptionPane.showInputDialog(null, "Digite a Marca do Novo Produto", "Adicionar Produto Ao Estoque", JOptionPane.PLAIN_MESSAGE);
@@ -25,6 +33,10 @@ public class MetodosGerente {
             escrita.write("0\n");
             escrita.close();
             JOptionPane.showMessageDialog(null, "Produto Adicionado Com Sucesso", "Adicionar Produto Ao Estoque", JOptionPane.PLAIN_MESSAGE);
+
+            FileWriter escritorLOG = new FileWriter(log,true);
+            escritorLOG.write(horaAtualFormatada +" [GERENTE] cadastrou o " + modelo + " no [ESTOQUE]" + "\n" );
+            escritorLOG.close();
         }
         catch(Exception exception){
             System.out.println("Erro ao cadastrar o novo produto");
@@ -71,6 +83,10 @@ public class MetodosGerente {
             escrita4.write("");
             escrita4.close();
             JOptionPane.showMessageDialog(null, "Produto Removido do Cadastro Com Sucesso", "Retirar Produto do Cadastro", JOptionPane.PLAIN_MESSAGE);
+
+            FileWriter escritorLOG = new FileWriter(log,true);
+            escritorLOG.write(horaAtualFormatada +" [GERENTE] retirou o produto " + cb + " do Cadastro" + "\n" );
+            escritorLOG.close();
         }
         catch(Exception exception){
             System.out.println("Ocorreu um erro!");
@@ -87,6 +103,10 @@ public class MetodosGerente {
             escrita.write(cargo + "\n");
             escrita.close();
             JOptionPane.showMessageDialog(null, "Funcionário Adicionado Ao Cadastro Com Sucesso", "Adicionar Funcionário Ao Cadastro", JOptionPane.PLAIN_MESSAGE);
+
+            FileWriter escritorLOG = new FileWriter(log,true);
+            escritorLOG.write(horaAtualFormatada +" [GERENTE] cadastrou um novo" + cargo + " no SIGEM" + "\n" );
+            escritorLOG.close();
         }
         catch(Exception exception){
             System.out.println("Erro ao cadastrar o novo funcionário");
@@ -133,6 +153,10 @@ public class MetodosGerente {
             escrita4.write("");
             escrita4.close();
             JOptionPane.showMessageDialog(null, "Funcionário Removido Do Cadastro Com Sucesso", "Retirar Funcionário do Cadastro", JOptionPane.PLAIN_MESSAGE);
+
+            FileWriter escritorLOG = new FileWriter(log,true);
+            escritorLOG.write(horaAtualFormatada +" [GERENTE] removeu um funcionário do SIGEM" + "\n" );
+            escritorLOG.close();
         }
         catch(Exception exception){
             System.out.println("Ocorreu um erro!");
@@ -185,6 +209,24 @@ public class MetodosGerente {
         catch(Exception e){
             System.out.println("Ocorreu um erro");
         }
+    }
+
+    public void visualizarLOG() throws FileNotFoundException {
+        Scanner scannerlog = new Scanner(log);
+        String log = "";
+
+        while(scannerlog.hasNextLine()){
+            String linha = scannerlog.nextLine();
+            log += linha + "\n";
+        }
+        JTextArea areaDeTexto = new JTextArea(log);
+        JScrollPane painelDeRolagem = new JScrollPane(areaDeTexto);
+        JFrame frame = new JFrame("Histórico de Movimentações");
+        frame.setSize(650,500);
+        frame.setLocationRelativeTo(null);
+        frame.add(painelDeRolagem);
+        frame.setVisible(true);
+
     }
 
 }

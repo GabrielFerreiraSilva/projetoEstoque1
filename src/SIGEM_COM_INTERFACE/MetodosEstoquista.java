@@ -6,15 +6,22 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MetodosEstoquista {
     // Arquivo do estoque
-    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/produtos.txt");
+    File estoque = new File("produtos.txt");
 
-    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/funcionarios.txt");
+    File arquivo = new File("funcionarios.txt");
 
     // Arquivo feito para auxiliar a atualização que será feita no estoque
-    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/auxiliar.txt");
+    File auxiliar = new File("auxiliar.txt");
+    File log = new File("log.txt");
+
+    LocalDateTime horaAtual = LocalDateTime.now();
+    String horaAtualFormatada = horaAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+
     public void adicionarProdutosEstoque() throws FileNotFoundException{
 
         try {
@@ -60,6 +67,10 @@ public class MetodosEstoquista {
                         escritor2.write(preco + "\n");
                         escritor2.write(quantidade + quantidadeNova + "\n");
                         escritor2.close();
+
+                        FileWriter escritorLOG = new FileWriter(log,true);
+                        escritorLOG.write(horaAtualFormatada +" [ESTOQUISTA] adicionou " + quantidadeNova + " quantidades do " + modelo + " no [ESTOQUE]." + "\n" );
+                        escritorLOG.close();
                     }
                 }
                 // Após todos os produtos do estoque já estarem no arquivo auxiliar (com suas quantidades corretas)
