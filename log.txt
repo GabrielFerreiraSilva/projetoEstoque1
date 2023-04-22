@@ -1,0 +1,5 @@
+19/04/2023 22:58:31 [ESTOQUISTA] adicionou 5 quantidades do Galaxy A33 no [ESTOQUE].
+19/04/2023 22:58:45 [ESTOQUISTA] adicionou 9 quantidades do K62 no [ESTOQUE].
+19/04/2023 22:59:06 [ESTOQUISTA] adicionou 3 quantidades do RTX 3060 no [ESTOQUE].
+19/04/2023 23:04:50 [REPOSITOR] adicionou 9 quantidades do RTX 3060 no [MOSTRUÁRIO].
+19/04/2023 23:07:09 [REPOSITOR] adicionou 10 quantidades do K62 no [MOSTRUÁRIO].

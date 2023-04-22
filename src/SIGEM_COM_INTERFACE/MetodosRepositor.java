@@ -5,20 +5,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class MetodosRepositor {
     // Arquivo referente ao mostruário
-    File mostruario = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/mostruario.txt");
+    File mostruario = new File("mostruario.txt");
 
-    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/funcionarios.txt");
+    File arquivo = new File("funcionarios.txt");
 
     // Arquivo referente ao estoque
-    File estoque = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/produtos.txt");
+    File estoque = new File("produtos.txt");
 
     // Arquivos que vao auxiliar no funciomanete da classe repositor
-    File auxiliar = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/auxiliar.txt");
-    File auxiliar2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/auxiliar2.txt");
+    File auxiliar = new File("auxiliar.txt");
+    File auxiliar2 = new File("auxiliar2.txt");
+    File log = new File("log.txt");
+    LocalDateTime horaAtual = LocalDateTime.now();
+    String horaAtualFormatada = horaAtual.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
     public void adicionarProdutosMostruario() {
 
@@ -54,6 +59,10 @@ public class MetodosRepositor {
                         if (verificarQuantEstoque(codigoLido,quantidadeNova) == true) {
                             escritor1.write(quantidade + quantidadeNova + "\n");
                             escritor1.close();
+
+                            FileWriter escritorLOG = new FileWriter(log,true);
+                            escritorLOG.write(horaAtualFormatada +" [REPOSITOR] adicionou " + quantidadeNova + " quantidades do " + modelo + " no [MOSTRUÁRIO]." + "\n" );
+                            escritorLOG.close();
                             // Caso não seja viável ocorrer essa transferência a quantidade não vai ser alterada
                         } else if (verificarQuantEstoque(codigoLido,quantidadeNova) == false){
                             escritor1.write(quantidade + "\n");
@@ -197,6 +206,11 @@ public class MetodosRepositor {
                         escritor2.write(marca + "\n");
                         escritor2.write(modelo + "\n");
                         escritor2.write(preco + "\n");
+
+                        FileWriter escritorLOG = new FileWriter(log,true);
+                        escritorLOG.write(horaAtualFormatada +" [REPOSITOR] adicionou " + quantidadeNova + " quantidades do " + modelo + " no [MOSTRUÁRIO]." + "\n" );
+                        escritorLOG.close();
+
                         // Caso seja viável a transferência, a quantidade é alterada
                         if (verificarQuantEstoque(codigoLido,quantidadeNova) == true) {
                             escritor2.write(quantidadeNova + "\n");

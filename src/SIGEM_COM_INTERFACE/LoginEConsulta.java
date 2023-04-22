@@ -9,8 +9,8 @@ public class LoginEConsulta {
     private boolean flag = false;
     private boolean acabou;
     private String cargo;
-    File arquivo = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/funcionarios.txt");
-    File arquivo2 = new File("C:/Users/Computador/IdeaProjects/projetoEstoque1/src/SIGEM_COM_INTERFACE/produtos.txt");
+    File arquivo = new File("funcionarios.txt");
+    File arquivo2 = new File("produtos.txt");
     public LoginEConsulta(String mr, String sr){
         this.matriculaRecebida = mr;
         this.senhaRecebida = sr;

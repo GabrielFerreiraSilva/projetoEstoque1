@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+
 public class TelaGerente extends Frame {
     private JComboBox comboBox1;
     private JButton OKButton;
@@ -46,10 +48,17 @@ public class TelaGerente extends Frame {
                         break;
                     }
                     else if(comboBox1.getSelectedItem().toString().equals("Alterar Senha")){
-
                         ger.alterarSenha();
                         break;
+                    }
+                    else if(comboBox1.getSelectedItem().toString().equals("Histórico de Movimentações")){
+                        try {
+                            ger.visualizarLOG();
 
+                        } catch (FileNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        break;
                     }
                 }
             }
